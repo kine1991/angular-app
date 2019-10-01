@@ -1,0 +1,10 @@
+<h2>qqq</h2>
+<div class="card w-75 my-3">
+    <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.text}}</p>
+        <button (click)="removePost()"  class="btn btn-danger">&times;</button>
+
+        <ng-content></ng-content>
+    </div>
+</div>
