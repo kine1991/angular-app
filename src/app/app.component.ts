@@ -32,4 +32,6 @@ export class AppComponent implements OnInit {
       this.posts[0].title = "change"
     },5000)
   }
+
+  isVisible = true;
 }
