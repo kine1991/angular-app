@@ -7,6 +7,10 @@ import { PostFormComponent } from './post-form/post-form.component';
 import { PostComponent } from './post/post.component';
 import { StyleDirective } from './directives/style.directive';
 import { IfnotDirective } from './directives/ifnot.directive';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+import { LOCALE_ID } from '@angular/core';
+registerLocaleData(localeRu, 'ru');
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import { IfnotDirective } from './directives/ifnot.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: 'ru'}],
+  // providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

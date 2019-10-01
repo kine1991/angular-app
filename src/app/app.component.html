@@ -1,10 +1,18 @@
 <div class="container">
     <h1>Angular Components</h1>
 
-    <p [appStyle]="'red'" [dStyles]="{border: '1px solid blue', borderRadius: '5px'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quasi, ipsam, ut, rem quod obcaecati recusandae ex quas distinctio sapiente consectetur cum asperiores placeat hic nesciunt pariatur inventore adipisci ea.</p>
+    <p>{{date | date:'dd MMMM yyyy HH:mm:ss' }}</p>
+    <p>{{float | currency}}</p>
+    <p>{{float | percent}}</p>
+    <pre>{{obj |  json}}</pre>
+    <!-- <p>{{float | }}</p> -->
+    <!-- {{e | number:'2.1-5' }} -->
+    <!-- {{str | uppercase | lowercase | titlecase | slice:1:-3 }} -->
+
+    <!-- <p [appStyle]="'red'" [dStyles]="{border: '1px solid blue', borderRadius: '5px'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quasi, ipsam, ut, rem quod obcaecati recusandae ex quas distinctio sapiente consectetur cum asperiores placeat hic nesciunt pariatur inventore adipisci ea.</p>
     <p [appStyle]="'blue'" [dStyles]="{border: '1px solid blue', borderRadius: '5px'}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quasi, ipsam, ut, rem quod obcaecati recusandae ex quas distinctio sapiente consectetur cum asperiores placeat hic nesciunt pariatur inventore adipisci ea.</p>
 
-    <button (click)="isVisible = !isVisible">Toggle</button>
+    <button (click)="isVisible = !isVisible">Toggle</button> -->
 
     <!-- <div *ngIf="isVisible; else visible"  class="wrap"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem est obcaecati voluptatibus delectus laudantium dolorem natus quam minus voluptatum ab incidunt, cumque asperiores expedita sed eaque eveniet quae fuga!</p></div>
     <ng-template #visible>else</ng-template> -->
@@ -13,7 +21,7 @@
     </ng-template> -->
     
 
-    <div class="wrap" *appIfnot="!isVisible"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem est obcaecati voluptatibus delectus laudantium dolorem natus quam minus voluptatum ab incidunt, cumque asperiores expedita sed eaque eveniet quae fuga!</p></div>
+    <!-- <div class="wrap" *appIfnot="!isVisible"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem est obcaecati voluptatibus delectus laudantium dolorem natus quam minus voluptatum ab incidunt, cumque asperiores expedita sed eaque eveniet quae fuga!</p></div> -->
 
     <!-- <h2>Angular Components</h2>
 
