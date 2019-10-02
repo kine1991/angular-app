@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
+import { AppCounterService } from './services/app-counter.service';
+import { LocalCounterService } from './services/local-counter.service';
 
 export interface Post {
   title: string
@@ -10,7 +12,8 @@ export interface Post {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [LocalCounterService]
 })
 export class AppComponent implements OnInit {
 
@@ -21,6 +24,10 @@ export class AppComponent implements OnInit {
       console.log('ngOnInit')
       // this.posts[0].title = "change"
     },5000)
+  }
+
+  constructor(private appCounterService: AppCounterService, private localCounterService: LocalCounterService){
+
   }
 
 

@@ -13,6 +13,7 @@ import { LOCALE_ID } from '@angular/core';
 import { MultByPipe } from './pipes/mult-by.pipe';
 import { ExMarksPipe } from './pipes/ex-marks.pipe';
 import { FiltePipe } from './pipes/filte.pipe';
+import { CounterComponent } from './counter/counter.component';
 registerLocaleData(localeRu, 'ru');
 
 @NgModule({
@@ -25,12 +26,15 @@ registerLocaleData(localeRu, 'ru');
     MultByPipe,
     ExMarksPipe,
     FiltePipe,
+    CounterComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'ru'}],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'ru'}
+  ],
   // providers: [],
   bootstrap: [AppComponent]
 })
