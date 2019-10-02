@@ -10,6 +10,9 @@ import { IfnotDirective } from './directives/ifnot.directive';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import { LOCALE_ID } from '@angular/core';
+import { MultByPipe } from './pipes/mult-by.pipe';
+import { ExMarksPipe } from './pipes/ex-marks.pipe';
+import { FiltePipe } from './pipes/filte.pipe';
 registerLocaleData(localeRu, 'ru');
 
 @NgModule({
@@ -19,6 +22,9 @@ registerLocaleData(localeRu, 'ru');
     PostComponent,
     StyleDirective,
     IfnotDirective,
+    MultByPipe,
+    ExMarksPipe,
+    FiltePipe,
   ],
   imports: [
     BrowserModule,
