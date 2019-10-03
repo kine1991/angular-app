@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostFormComponent } from './post-form/post-form.component';
 import { PostComponent } from './post/post.component';
 import { StyleDirective } from './directives/style.directive';
@@ -14,6 +14,7 @@ import { MultByPipe } from './pipes/mult-by.pipe';
 import { ExMarksPipe } from './pipes/ex-marks.pipe';
 import { FiltePipe } from './pipes/filte.pipe';
 import { CounterComponent } from './counter/counter.component';
+import { FormComponent } from './components/form/form.component';
 registerLocaleData(localeRu, 'ru');
 
 @NgModule({
@@ -27,10 +28,12 @@ registerLocaleData(localeRu, 'ru');
     ExMarksPipe,
     FiltePipe,
     CounterComponent,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'ru'}

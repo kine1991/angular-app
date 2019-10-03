@@ -1,0 +1,49 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email</label>
+      <input  formControlName="email" type="email" class="form-control" [class.is-invalid]="form.controls.email.invalid && !form.controls.email.untouched" [class.is-valid]="form.controls.email.valid && !form.controls.email.untouched" id="exampleFormControlInput1" placeholder="Email">
+      <div class="invalid-feedback" *ngIf="form.get('email').invalid && form.get('email').touched">
+          <span *ngIf="form.get('email').errors.required">email is required</span>
+          <span *ngIf="form.get('email').errors.email">incorrect email</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput2">Password</label>
+      <input formControlName="password" type="text" class="form-control" [class.is-invalid]="form.controls.password.invalid && !form.controls.password.untouched" [class.is-valid]="form.controls.password.valid && !form.controls.password.untouched" id="exampleFormControlInput2" placeholder="Password">
+      <div class="invalid-feedback" *ngIf="form.get('password').invalid && form.get('password').touched">
+        <span *ngIf="form.get('password').errors.required">password is required</span>
+        <span *ngIf="form.get('password').errors.minlength ">length sould be more or equal {{form.get('password').errors.minlength.requiredLength}}</span>
+      </div>
+    </div>
+
+    <!-- <pre>{{form.get('password').errors | json}}</pre> -->
+
+ 
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Example select</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Example multiple select</label>
+      <select multiple class="form-control" id="exampleFormControlSelect2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <button  class="btn btn-primary" type="submit">Submit</button>
+  </form>
+
+  <!-- is-invalid -->
