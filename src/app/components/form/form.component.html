@@ -1,49 +1,90 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email</label>
+    <input formControlName="email" type="email" class="form-control"
+      [class.is-invalid]="form.controls.email.invalid && !form.controls.email.untouched"
+      [class.is-valid]="form.controls.email.valid && !form.controls.email.untouched" id="exampleFormControlInput1"
+      placeholder="Email">
+    <div class="invalid-feedback" *ngIf="form.get('email').invalid && form.get('email').touched">
+      <span *ngIf="form.get('email').errors.required">email is required</span>
+      <span *ngIf="form.get('email').errors.email">incorrect email</span>
+      <span *ngIf="form.get('email').errors.restrictedEmail">forbidden {{form.get('email').value}} </span>
+      <span *ngIf="form.get('email').errors.uniqueEmail">{{form.get('email').value}} is busy </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput2">Password</label>
+    <input formControlName="password" type="text" class="form-control"
+      [class.is-invalid]="form.controls.password.invalid && !form.controls.password.untouched"
+      [class.is-valid]="form.controls.password.valid && !form.controls.password.untouched" id="exampleFormControlInput2"
+      placeholder="Password">
+    <div class="invalid-feedback" *ngIf="form.get('password').invalid && form.get('password').touched">
+      <span *ngIf="form.get('password').errors.required">password is required</span>
+      <span *ngIf="form.get('password').errors.minlength ">length sould be more or equal
+        {{form.get('password').errors.minlength.requiredLength}}</span>
+    </div>
+  </div>
+
+  <!-- <pre>{{form.get('password').errors | json}}</pre> -->
+
+  <div formGroupName="address">
     <div class="form-group">
-      <label for="exampleFormControlInput1">Email</label>
-      <input  formControlName="email" type="email" class="form-control" [class.is-invalid]="form.controls.email.invalid && !form.controls.email.untouched" [class.is-valid]="form.controls.email.valid && !form.controls.email.untouched" id="exampleFormControlInput1" placeholder="Email">
-      <div class="invalid-feedback" *ngIf="form.get('email').invalid && form.get('email').touched">
-          <span *ngIf="form.get('email').errors.required">email is required</span>
-          <span *ngIf="form.get('email').errors.email">incorrect email</span>
+      <label for="exampleFormControlSelect1">select country</label>
+      <select formControlName="country" class="form-control" id="exampleFormControlSelect1">
+        <option value="ru">Ru</option>
+        <option value="by">By</option>
+        <option value="ua">Ua</option>
+      </select>
+
+      <div class="form-group">
+        <label for="exampleFormControlInput3">Password</label>
+        <input formControlName="city" type="text" class="form-control"
+          [class.is-invalid]="form.controls.address.controls.city.invalid && !form.controls.address.controls.city.untouched"
+          [class.is-valid]="form.controls.address.controls.city.valid && !form.controls.address.controls.city.untouched"
+          id="exampleFormControlInput3" placeholder="city">
+        <div class="invalid-feedback"
+          *ngIf="form.get('address').get('city').invalid && form.get('address').get('city').touched">
+          <span *ngIf="form.get('address').get('city').errors.required">city is required</span>
+        </div>
+        <button (click)="setCapital()" class="btn btn-primary">Select</button>
+        <!-- <pre>{{ form.get('address') | json}}</pre> -->
       </div>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlInput2">Password</label>
-      <input formControlName="password" type="text" class="form-control" [class.is-invalid]="form.controls.password.invalid && !form.controls.password.untouched" [class.is-valid]="form.controls.password.valid && !form.controls.password.untouched" id="exampleFormControlInput2" placeholder="Password">
-      <div class="invalid-feedback" *ngIf="form.get('password').invalid && form.get('password').touched">
-        <span *ngIf="form.get('password').errors.required">password is required</span>
-        <span *ngIf="form.get('password').errors.minlength ">length sould be more or equal {{form.get('password').errors.minlength.requiredLength}}</span>
-      </div>
-    </div>
+  </div>
 
-    <!-- <pre>{{form.get('password').errors | json}}</pre> -->
+  <div formGroupName="skills">
+    <div class="form-group" *ngFor="let control of form.get('skills').controls; let idx = index">
+      <label for="exampleFormControlInput4">Password</label>
+      <input [formControlName]="idx" type="text" class="form-control" id="exampleFormControlInput4" placeholder="skill">
+      <!-- <div class="invalid-feedback" >
+          <span *ngIf="form.controls.skills.controls[0]">skill is required</span>
+      </div> -->
+      <!-- <div class="invalid-feedback" *ngIf="form.get('address').get('skill').invalid && form.get('address').get('skill').touched">
+          <span *ngIf="form.get('skils').get('skill').errors.required">skill is required</span>
+      </div> -->
+    </div>
+    <button (click)="addSkill()" class="btn btn-primary">Select</button>
 
- 
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">Example multiple select</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Example textarea</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-    <button  class="btn btn-primary" type="submit">Submit</button>
-  </form>
+    <!-- <pre>{{ | json }}</pre> -->
+  </div>
+  <!-- </div> -->
 
-  <!-- is-invalid -->
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <button [disabled]="form.invalid || form.pending" class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<!-- is-invalid -->

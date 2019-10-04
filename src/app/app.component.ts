@@ -17,7 +17,7 @@ export interface Post {
 })
 export class AppComponent implements OnInit {
 
-
+  appState = 'on'
 
   ngOnInit() {
     setTimeout(() => {
