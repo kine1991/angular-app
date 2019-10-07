@@ -16,6 +16,7 @@ import { FiltePipe } from './pipes/filte.pipe';
 import { CounterComponent } from './counter/counter.component';
 import { FormComponent } from './components/form/form.component';
 import { SwitchComponent } from './components/switch/switch.component';
+import { RxjsComponent } from './components/rxjs/rxjs.component';
 registerLocaleData(localeRu, 'ru');
 
 @NgModule({
@@ -31,6 +32,7 @@ registerLocaleData(localeRu, 'ru');
     CounterComponent,
     FormComponent,
     SwitchComponent,
+    RxjsComponent,
   ],
   imports: [
     BrowserModule,
