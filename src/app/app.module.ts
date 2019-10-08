@@ -20,6 +20,10 @@ import { SwitchComponent } from './components/switch/switch.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { HttpclientComponent } from './components/httpclient/httpclient.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutExtraComponent } from './components/about-extra/about-extra.component';
+import { PostsComponent } from './components/posts/posts.component';
 registerLocaleData(localeRu, 'ru');
 
 const INTERCEPTOR_PROVEDER: Provider = {
@@ -43,6 +47,10 @@ const INTERCEPTOR_PROVEDER: Provider = {
     SwitchComponent,
     RxjsComponent,
     HttpclientComponent,
+    AboutComponent,
+    HomeComponent,
+    AboutExtraComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
