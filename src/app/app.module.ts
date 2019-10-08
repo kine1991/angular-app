@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http'
+import { NgModule, Provider } from '@angular/core';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,7 +19,14 @@ import { FormComponent } from './components/form/form.component';
 import { SwitchComponent } from './components/switch/switch.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { HttpclientComponent } from './components/httpclient/httpclient.component';
+import { AuthInterceptor } from './auth.interceptor';
 registerLocaleData(localeRu, 'ru');
+
+const INTERCEPTOR_PROVEDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+  multi: true
+}
 
 @NgModule({
   declarations: [
@@ -44,7 +51,8 @@ registerLocaleData(localeRu, 'ru');
     HttpClientModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'ru'}
+    {provide: LOCALE_ID, useValue: 'ru'},
+    // INTERCEPTOR_PROVEDER
   ],
   // providers: [],
   bootstrap: [AppComponent]

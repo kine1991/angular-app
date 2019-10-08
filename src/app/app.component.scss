@@ -9,3 +9,9 @@
     border: 1px orange solid;
     padding: 1rem;
 }
+
+p{
+    &.error{
+        color: red;
+    }
+}

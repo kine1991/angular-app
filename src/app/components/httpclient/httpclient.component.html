@@ -7,11 +7,18 @@
 <button (click)="addTodo()" class="btn btn-primary">Add</button>
 <button (click)="fetchTodos()" class="btn btn-primary">Load</button>
 
+<p>{{error}}</p>
+<p *ngIf="error; else todosBlock" class="error">{{error}}</p>
+
+<ng-template #todosBlock>
+    ddd
+</ng-template>
+
 <div *ngIf="!loading; else loadingBlock" class="">
     <ul *ngIf="todos.length; else noTodos"  class="list-group">
         <li *ngFor="let todo of todos" class="list-group-item">
             <p [class.completed]="todo.completed">{{todo.title | titlecase}}</p>
-            <button [disabled]="todo.completed" class="btn btn-danger">compleded</button>
+            <button (click)="completeTodo(todo.id)" [disabled]="todo.completed" class="btn btn-danger">compleded</button>
             <button (click)="removeTodo(todo.id)" class="btn btn-danger">delete</button>
         </li>
     </ul>
@@ -23,4 +30,3 @@
         <span class="sr-only">Loading...</span>
     </div>
 </ng-template>
-
