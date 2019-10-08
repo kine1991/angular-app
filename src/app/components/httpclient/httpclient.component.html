@@ -1,0 +1,26 @@
+<div class="form-group">
+    <label for="exampleInputtext1">text address</label>
+    <input [(ngModel)]="todoTitle" type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" placeholder="Enter text">
+    <small id="textHelp" class="form-text text-muted">We'll never share your text with anyone else.</small>
+</div>
+{{todoTitle}}
+<button (click)="addTodo()" class="btn btn-primary">Add</button>
+<button (click)="fetchTodos()" class="btn btn-primary">Load</button>
+
+<div *ngIf="!loading; else loadingBlock" class="">
+    <ul *ngIf="todos.length; else noTodos"  class="list-group">
+        <li *ngFor="let todo of todos" class="list-group-item">
+            <p [class.completed]="todo.completed">{{todo.title | titlecase}}</p>
+            <button [disabled]="todo.completed" class="btn btn-danger">compleded</button>
+            <button (click)="removeTodo(todo.id)" class="btn btn-danger">delete</button>
+        </li>
+    </ul>
+    <ng-template #noTodos></ng-template>
+</div>
+
+<ng-template #loadingBlock>
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</ng-template>
+

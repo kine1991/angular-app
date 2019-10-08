@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FormComponent } from './components/form/form.component';
 import { SwitchComponent } from './components/switch/switch.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
+import { HttpclientComponent } from './components/httpclient/httpclient.component';
 registerLocaleData(localeRu, 'ru');
 
 @NgModule({
@@ -33,11 +35,13 @@ registerLocaleData(localeRu, 'ru');
     FormComponent,
     SwitchComponent,
     RxjsComponent,
+    HttpclientComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'ru'}
