@@ -1,7 +1,9 @@
+<button [fragment]="'xx'" [routerLink]="['/posts']" [queryParams]="{showIds: true}" class="btn btn-secondary">showIds</button>
+<button (click)="showIdsProgram()" class="btn btn-secondary">showIds (Program)</button>
 <ul class="list-group">
         <li *ngFor="let post of postsService.posts" class="list-group-item">
                 <a [routerLink]="['/posts', post.id]">
-                        <span class="badge badge-secondary">ID {{post.id}}</span>
+                        <span *ngIf="showIds" class="badge badge-secondary">ID {{post.id}}</span>
                         <p>{{post.title}}</p>
                 </a>
         </li>

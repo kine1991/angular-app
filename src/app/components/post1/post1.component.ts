@@ -12,6 +12,7 @@ export class Post1Component implements OnInit {
 
   post: Post
 
+
   constructor(
     private route: ActivatedRoute,
     private postsService: PostsService,

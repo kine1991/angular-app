@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import { Observable } from 'rxjs';
 import { AppCounterService } from './services/app-counter.service';
 import { LocalCounterService } from './services/local-counter.service';
+import { AuthService } from './services/auth.service';
 
 export interface Post {
   title: string
@@ -26,10 +27,22 @@ export class AppComponent implements OnInit {
     },5000)
   }
 
-  constructor(private appCounterService: AppCounterService, private localCounterService: LocalCounterService){
+  constructor(
+    private appCounterService: AppCounterService, 
+    private localCounterService: LocalCounterService,
+    private auth: AuthService
+
+  ){
 
   }
 
+  login(){
+    this.auth.login()
+  }
+
+  logout(){
+    this.auth.logout()
+  }
 
   // p: Promise<string> = new Promise<string> ( resolve => {
   //   setTimeout(() => {

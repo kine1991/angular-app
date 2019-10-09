@@ -25,6 +25,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutExtraComponent } from './components/about-extra/about-extra.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { Post1Component } from './components/post1/post1.component';
+import { ErrorPageComponent } from './components/error-page/error-page.component';
 registerLocaleData(localeRu, 'ru');
 
 // const INTERCEPTOR_PROVEDER: Provider = {
@@ -53,6 +54,7 @@ registerLocaleData(localeRu, 'ru');
     AboutExtraComponent,
     PostsComponent,
     Post1Component,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

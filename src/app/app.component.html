@@ -8,12 +8,14 @@
         <a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-item nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
         <a routerLinkActive="active" class="nav-item nav-link" [routerLink]="['/about']">About</a>
         <a routerLinkActive="active" class="nav-item nav-link" [routerLink]="['/posts']">Posts</a>
+        <button (click)="login()" class="btn-secondary">login</button>
+        <button (click)="logout()" class="btn-secondary">logout</button>
         </div>
     </div>
 </nav>
 
 <div class="container">
-
+    <p>{{auth.isAuth}}</p>
     <router-outlet></router-outlet>
     <!-- <app-posts></app-posts> -->
 
