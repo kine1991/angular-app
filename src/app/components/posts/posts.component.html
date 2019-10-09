@@ -1,1 +1,8 @@
-<p>posts works!</p>
+<ul class="list-group">
+        <li *ngFor="let post of postsService.posts" class="list-group-item">
+                <a [routerLink]="['/posts', post.id]">
+                        <span class="badge badge-secondary">ID {{post.id}}</span>
+                        <p>{{post.title}}</p>
+                </a>
+        </li>
+</ul>

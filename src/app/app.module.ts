@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Provider } from '@angular/core';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
-
+import {AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostFormComponent } from './post-form/post-form.component';
@@ -19,18 +19,19 @@ import { FormComponent } from './components/form/form.component';
 import { SwitchComponent } from './components/switch/switch.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { HttpclientComponent } from './components/httpclient/httpclient.component';
-import { AuthInterceptor } from './auth.interceptor';
+// import { AuthInterceptor } from './auth.interceptor';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutExtraComponent } from './components/about-extra/about-extra.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { Post1Component } from './components/post1/post1.component';
 registerLocaleData(localeRu, 'ru');
 
-const INTERCEPTOR_PROVEDER: Provider = {
-  provide: HTTP_INTERCEPTORS,
-  useClass: AuthInterceptor,
-  multi: true
-}
+// const INTERCEPTOR_PROVEDER: Provider = {
+//   provide: HTTP_INTERCEPTORS,
+//   useClass: AuthInterceptor,
+//   multi: true
+// }
 
 @NgModule({
   declarations: [
@@ -51,12 +52,14 @@ const INTERCEPTOR_PROVEDER: Provider = {
     HomeComponent,
     AboutExtraComponent,
     PostsComponent,
+    Post1Component,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'ru'},

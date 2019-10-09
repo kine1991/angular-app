@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ContentChild, ElementRef, OnChanges, SimpleCh
 import { Post } from '../app.component';
 
 @Component({
-  selector: 'app-post',
+  selector: 'app-post2',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
   encapsulation: ViewEncapsulation.None // глобыльный стиль
